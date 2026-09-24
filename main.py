@@ -28,9 +28,10 @@ if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY not found. Make sure your .env file exists and is configured correctly.")
 
 groq_client = Groq(api_key=GROQ_API_KEY)
-# llama-3.3-70b-versatile = higher quality, 1,000 req/day free tier
-# llama-3.1-8b-instant   = lighter/faster, 14,400 req/day free tier (better if you process many reels/day)
-GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+# openai/gpt-oss-120b = higher quality, reasoning-capable
+# openai/gpt-oss-20b = lighter, better if you process many reels/day
+# if any of these model works check https://console.groq.com/docs/models
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-20b")
 
 # --- Whisper configuration ---
 WHISPER_MODEL_SIZE = "medium"
